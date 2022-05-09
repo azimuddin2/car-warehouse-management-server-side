@@ -47,6 +47,27 @@ async function run() {
             const result = await itemCollection.deleteOne(query);
             res.send(result);
         })
+
+        // Quantity 
+        app.put('/item/:id', async (req, res) => {
+            const id = req.params.id;
+            const updatedQuantity = (req.body)
+            console.log(req.body)
+            const filter = {_id: ObjectId(id)};
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    quantity: updatedQuantity.updatedQuantity
+                },
+            };
+            const result = await cycleCollection.updateOne(
+                filter,
+                updateDoc,
+                options
+            );
+            console.log(result)
+            res.send(result);
+        });
     }
     finally {
 
