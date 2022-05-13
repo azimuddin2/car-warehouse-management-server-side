@@ -46,7 +46,7 @@ async function run() {
             res.send(result);
         })
 
-        // Quantity 
+        // Quantity Add
         app.put('/item/:id', async (req, res) => {
             const id = req.params.id;
             const updatedQuantity = (req.body)
@@ -67,6 +67,7 @@ async function run() {
             res.send(result);
         });
 
+        // Quantity Delete
         app.put('/item/:id', async (req, res) => {
             const id = req.params.id;
             const updatedQuantity = (req.body)
